@@ -6,12 +6,15 @@ import numpy as np
 from sqlalchemy import create_engine
 
 
-# connection
+
+
+import os
 from sqlalchemy import create_engine
 
-engine = create_engine(
-    "mssql+pyodbc://@SAHIL\\SQLEXPRESS/rec_sys?driver=ODBC+Driver+17+for+SQL+Server&trusted_connection=yes"
-)
+# Use Streamlit secrets or environment variable
+DATABASE_URL = st.secrets["DATABASE_URL"]  # preferred
+
+engine = create_engine(DATABASE_URL)
 
 
 
